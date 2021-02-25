@@ -1,6 +1,7 @@
 #!/bin/sh
 # Purpose: shaded relief grid raster map from the GEBCO 15 arc sec global data set (here: Uganda)
 # GMT modules: gmtset, gmtdefaults, grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, gmtlogo, psconvert
+# http://soliton.vm.bytemark.co.uk/pub/cpt-city/lb/mp/index.html
 
 # GMT set up
 gmt set FORMAT_GEO_MAP=dddF \
