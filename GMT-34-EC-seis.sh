@@ -98,16 +98,16 @@ gmt psxy -R -J TP_South_Am.txt -L -Wthickest,purple -O -K >> $ps
 gmt pslegend -R -J -Dx1.5/-3.1+w17.8c+o-2.0/0.1c \
     -F+pthin+ithinner+gwhite \
     --FONT=8p,black -O -K << FIN >> $ps
-H 10 Helvetica Seismicity: earthquakes magnitude (M) from 3.7 to 6.2.
+H 10 Helvetica Seismicity: earthquakes magnitude (M) from 2.9 to 7.8
 N 9
-S 0.3c c 0.3c red 0.01c 0.5c M (6.0-6.2)
-S 0.3c c 0.3c tomato 0.01c 0.5c M (5.6-6.0)
-S 0.3c c 0.3c orange 0.01c 0.5c M (5.3-5.6)
-S 0.3c c 0.3c yellow 0.01c 0.5c M (5.0-5.3)
-S 0.3c c 0.3c chartreuse1 0.01c 0.5c M (4.6-5.0)
-S 0.3c c 0.3c chartreuse1 0.01c 0.5c M (4.3-4.6)
-S 0.3c c 0.3c cyan3 0.01c 0.5c M (4.0-4.3)
-S 0.3c c 0.3c blue 0.01c 0.5c M (3.7-4.0)
+S 0.3c c 0.3c red 0.01c 0.5c M (7.4-7.8)
+S 0.3c c 0.3c tomato 0.01c 0.5c M (7.1-7.3)
+S 0.3c c 0.3c orange 0.01c 0.5c M (6.4-7.0)
+S 0.3c c 0.3c yellow 0.01c 0.5c M (5.7-6.3)
+S 0.3c c 0.3c chartreuse1 0.01c 0.5c M (5.0-5.6)
+S 0.3c c 0.3c chartreuse1 0.01c 0.5c M (4.3-4.9)
+S 0.3c c 0.3c cyan3 0.01c 0.5c M (3.6-4.2)
+S 0.3c c 0.3c blue 0.01c 0.5c M (2.9-3.5)
 
 S 0.3c t 0.3c red 0.03c 0.5c Volcanoes
 FIN
@@ -122,4 +122,4 @@ gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y8.1c -N -O \
 EOF
 
 # Convert to image file using GhostScript
-gmt psconvert Seis_EC.ps -A2.0c -E720 -Tj -Z
+gmt psconvert Seis_EC.ps -A1.8c -E720 -Tj -Z
