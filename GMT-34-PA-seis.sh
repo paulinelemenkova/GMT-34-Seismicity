@@ -19,7 +19,7 @@ gmt set FORMAT_GEO_MAP=dddF \
 gmtdefaults -D > .gmtdefaults
 
 # Extract a subset of ETOPO1m for the study area
-gmt grdcut ETOPO1_Ice_g_gmt4.grd -R276.5/283/6.5/10.5 -Gpa_relief.nc
+#gmt grdcut ETOPO1_Ice_g_gmt4.grd -R276.5/283/6.5/10.5 -Gpa_relief.nc
 gmt grdcut GEBCO_2019.nc -R276.5/283/6.5/10.5 -Gpa_relief.nc
 gdalinfo -stats pa_relief.nc
 # Min=-5401.590 Max=6232.578
@@ -52,11 +52,11 @@ gmt psscale -Dg276.5/6.05+w16.5c/0.4c+h+o0.0/0i+ml+e -R -J -Cpauline.cpt \
     -I0.2 -By+lm -O -K >> $ps
     
 # Add isolines
-gmt grdcontour pa_relief.nc -R -J -C1000 -A1000+f7p,26,darkbrown -Wthinner,darkbrown -O -K >> $ps
+gmt grdcontour pa_relief.nc -R -J -C1000 -A1000+f7p,26,lavender -Wthinner,lavender -O -K >> $ps
 
 # Add coastlines, borders, rivers
 gmt pscoast -R -J -P \
-    -Ia/thinner,blue -Na -N1/thickest,olivedrab1 -W0.1p -Df -O -K >> $ps
+    -Ia/thinner,blue -Na -N1/thickest,olivedrab1 -Wthin,lightcyan2 -Df -O -K >> $ps
     
 # Add grid
 gmt psbasemap -R -J \
@@ -66,7 +66,7 @@ gmt psbasemap -R -J \
     --MAP_TITLE_OFFSET=0.8c \
     --FONT_ANNOT_PRIMARY=8p,0,black \
     --FONT_LABEL=8p,25,black \
-    --FONT_TITLE=16p,25,black \
+    --FONT_TITLE=14p,25,black \
     -B+t"Seismicity in Panama according to IRIS (1970-2021)" -O -K >> $ps
     
 # Add scale, directional rose
@@ -80,7 +80,7 @@ gmt psbasemap -R -J \
 
 # Add earthquake points
 # separator in numbers of table: dot (.), not comma ! (British style)
-gmt psxy -R -J quakes_PA_s.ngdc -Wfaint -i4,3,6,6s0.06 -h3 -Scc -Csteps.cpt -O -K >> $ps
+gmt psxy -R -J quakes_PA_s.ngdc -Wfaint -i4,3,6,6s0.05 -h3 -Scc -Csteps.cpt -O -K >> $ps
 
 # Add geological lines and points
 gmt psxy -R -J volcanoes.gmt -St0.4c -Gred -Wthinnest -O -K >> $ps
