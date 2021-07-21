@@ -1,5 +1,5 @@
 #!/bin/sh
-# Purpose: shaded relief grid raster map from the GEBCO 15 arc sec global data set (here: Panama)
+# Purpose: shaded relief grid raster map from the GEBCO 15 arc sec global data set (here: Venezuela)
 # GMT modules: gmtset, gmtdefaults, grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, gmtlogo, psconvert
 # http://soliton.vm.bytemark.co.uk/pub/cpt-city/wkp/shadowxfox/tn/colombia.png.index.html
 
