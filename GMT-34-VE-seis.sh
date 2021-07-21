@@ -1,7 +1,7 @@
 #!/bin/sh
 # Purpose: shaded relief grid raster map from the GEBCO 15 arc sec global data set (here: Panama)
 # GMT modules: gmtset, gmtdefaults, grdcut, makecpt, grdimage, psscale, grdcontour, psbasemap, gmtlogo, psconvert
-#http://soliton.vm.bytemark.co.uk/pub/cpt-city/esri/hillshade/tn/purple_gray_dk.png.index.html
+# http://soliton.vm.bytemark.co.uk/pub/cpt-city/wkp/shadowxfox/tn/colombia.png.index.html
 
 # GMT set up
 gmt set FORMAT_GEO_MAP=dddF \
@@ -19,13 +19,15 @@ gmt set FORMAT_GEO_MAP=dddF \
 gmtdefaults -D > .gmtdefaults
 
 # Extract a subset of ETOPO1m for the study area
-#gmt grdcut ETOPO1_Ice_g_gmt4.grd -R286/300.5/0/12.5 -Gve_relief.nc
+gmt grdcut ETOPO1_Ice_g_gmt4.grd -R286/300.5/0/12.5 -Gve_relief1.nc
 gmt grdcut GEBCO_2019.nc -R286/300.5/0/12.5 -Gve_relief.nc
 gdalinfo -stats ve_relief.nc
 # Min=-4947.963 Max=5535.625
 
 # Make color palette
-gmt makecpt -Cbone.cpt -V -T-4948/5536 > pauline.cpt
+# gmt makecpt -Cbone.cpt -V -T-4948/5536 > pauline.cpt
+# gmt makecpt -Ccolombia.cpt -V -T-4948/5536 > pauline.cpt
+gmt makecpt -Ccolombia.cpt > pauline.cpt
 gmt makecpt -Cseis -T1.9/7.3/0.5 -Z > steps.cpt
 # srtm dem1, dem2, dem3
 
@@ -38,11 +40,11 @@ gmt psscale -Dg286/-1.0+w16.5c/0.4c+h+o0.0/0i+ml+e -R -J -Cpauline.cpt \
     --FONT_LABEL=8p,0,black \
     --FONT_ANNOT_PRIMARY=7p,0,black \
     --FONT_TITLE=6p,0,black \
-    -Bg500f50a500+l"Colormap: 'bone' scheme of h5utils package by MIT's S.G. Johnson, continuous, RGB, 63 segments [R=-5401/6233, H, C=RGB]" \
+    -Bg500f50a500+l"Colormap: 'colombia' scheme [−4000 to 5000, discrete, RGB, 14 segments]" \
     -I0.2 -By+lm -O -K >> $ps
     
 # Add isolines
-gmt grdcontour ve_relief.nc -R -J -C1000 -A1000+f7p,26,lavender -Wthinner,lavender -O -K >> $ps
+gmt grdcontour ve_relief1.nc -R -J -C500 -Wthinnest,brown -O -K >> $ps
 
 # Add coastlines, borders, rivers
 gmt pscoast -R -J -P \
