@@ -89,6 +89,280 @@ gmt psxy -R -J TP_Nazca.txt -L -Wthickest,purple -O -K >> $ps
 gmt psxy -R -J TP_South_Am.txt -L -Wthickest,purple -O -K >> $ps
 
 # Texts
+gmt pstext -R -J -N -O -K \
+-F+f10p,17,black+jLB+a-0 >> $ps << EOF
+293.20 10.58 Caracas
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gred -O -K << EOF >> $ps
+293.10 10.48 0.30c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+288.07 10.80 Maracaibo
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+288.37 10.63 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+291.30 10.38 Valencia
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+292 10.18 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+290.67 9.60 Barquisimeto
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+290.67 10.06 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+297.45 8.20 Ciudad
+297.45 7.90 Guayana
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+297.35 8.36 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+296.2 9.35 Maturín
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+296.82 9.75 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+294.60 9.75 Barcelona
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+295.28 10.12 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+292.4 9.90 Maracay
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+292.4 10.25 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+295.93 10.46 Cumaná
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+295.83 10.46 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+289.9 8.63 Barinas
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+289.8 8.63 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+294.20 8.24 Ciudad Bolívar
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+296.45 8.14 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+287.87 7.76 San Cristóbal
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+287.77 7.76 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+291.80 7.80 San
+291.80 7.55 Fernando
+291.80 7.30 de Apure
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+292.53 7.89 0.20c
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f10p,0,black+jLB+a-0 >> $ps << EOF
+299.4 2.4 Boa
+299.4 2.1 Vista
+EOF
+gmt psxy -R -J -Sc -W0.5p -Gyellow -O -K << EOF >> $ps
+299.33 2.82 0.20c
+EOF
+# countries
+gmt pstext -R -J -N -O -K \
+-F+jTL+f9p,25,white+jLB >> $ps << EOF
+297.8 11.20 TOBAGO
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f9p,25,white+jLB >> $ps << EOF
+298.75 10.20 TRINIDAD
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f11p,25,black+jLB >> $ps << EOF
+289.1 5.0 C O L O M B I A
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f11p,25,black+jLB >> $ps << EOF
+297.0 1.0 B  R  A  Z  I  L
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f11p,25,black+jLB >> $ps << EOF
+298.85 6.10 GUYANA
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f16p,25,firebrick4+jLB >> $ps << EOF
+290.9 6.70 V  E  N  E  Z  U  E  L  A
+EOF
+# water
+gmt pstext -R -J -N -O -K \
+-F+jTL+f14p,17,darkslateblue+jLB -Glavender@60 >> $ps << EOF
+292.0 11.6 C a r i b b e a n  S e a
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB >> $ps << EOF
+288.07 9.9 Lake
+288.0 9.6 Maracaibo
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB >> $ps << EOF
+288.5 11.5 Golfo de
+288.3 11.2 Venezuela
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,white+jLB >> $ps << EOF
+297.5 10.4 Golfo
+297.5 10.1 de Paria
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB >> $ps << EOF
+291.9 10.7 Golfo
+291.9 10.4 Triste
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f11p,26,blue1+jLB+a-342 >> $ps << EOF
+295.35 7.4 Rio Orinoco
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-335 >> $ps << EOF
+290.0 7.4 Apure
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB >> $ps << EOF
+290.0 7.1 Arauca
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-80 >> $ps << EOF
+298.0 6.8 Cuyuni
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB >> $ps << EOF
+297.4 7.6 Embalse
+297.4 7.3 de Guri
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-12 >> $ps << EOF
+290.2 9.2 Portuguesa
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-9 >> $ps << EOF
+292.90 7.9 Guarico
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-75 >> $ps << EOF
+295.20 6.1 Caura
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-7 >> $ps << EOF
+295.83 9.1 Tigre
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-290 >> $ps << EOF
+296.0 5.7 Paragua
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f11p,21,white+jLB >> $ps << EOF
+298.0 9.2 Orinoco
+298.0 8.8 Delta
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB >> $ps << EOF
+288.2 6.35 Río Casanare
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-330 >> $ps << EOF
+288.07 4.5 Río Meta
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-345 >> $ps << EOF
+288.80 4.1 Río Vichada
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-350 >> $ps << EOF
+289.8 3.6 Río Guaviare
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-330 >> $ps << EOF
+290.7 2.85 Río Inírida
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-325 >> $ps << EOF
+291.2 2.3 Río Guainía
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-293 >> $ps << EOF
+298.75 1.8 Branco
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,blue1+jLB+a-350 >> $ps << EOF
+297.9 2.9 Uraricoera
+EOF
+
+#
+# geography
+gmt pstext -R -J -N -O -K \
+-F+jTL+f13p,25,darkgreen+jLB+a-0 >> $ps << EOF
+293.5 2.8 Amazon
+293.5 2.3 Forests
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f12p,25,darkred+jLB+a-0 >> $ps << EOF
+293.8 5.0 Guiana Highlands
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f11p,25,darkred+jLB+a-0 >> $ps << EOF
+297.8 5.5 Gran
+297.7 5.0 Sabana
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,darkred+jLB+a-50 >> $ps << EOF
+294.2 4.8 Sierra Parima
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f12p,21,black+jLB+a-320 >> $ps << EOF
+288.3 8.1 Cordillera de Mérida
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f12p,21,white+jLB+a-315 >> $ps << EOF
+286.7 5.8 Los Andes
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f14p,32,darkgreen+jLB+a-330 >> $ps << EOF
+290.8 7.8 Los Llanos
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,darkred+jLB+a-0 >> $ps << EOF
+290.1 12.1 Paraguaná
+290.1 11.8 Peninsula
+EOF
+gmt pstext -R -J -N -O -K \
+-F+jTL+f10p,21,darkred+jLB+a-0 >> $ps << EOF
+290.0 11.1 Lara-Falcón
+290.0 10.8 Formación
+290.0 10.5 (Coro)
+EOF
 
 gmt pslegend -R -J -Dx1.5/-3.0+w17.8c+o-2.0/0.1c \
     -F+pthin+ithinner+gwhite \
