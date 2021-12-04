@@ -19,8 +19,8 @@ gmt set FORMAT_GEO_MAP=dddF \
 gmtdefaults -D > .gmtdefaults
 
 # Extract a subset of ETOPO1m for the study area
-gmt grdcut ETOPO1_Ice_g_gmt4.grd -R240/275/14/33 -Gmx_relief1.nc
-gmt grdcut GEBCO_2019.nc -R240/275/14/33 -Gmx_relief.nc
+gmt grdcut ETOPO1_Ice_g_gmt4.grd -R240/275/14/33 -Gmx_relief.nc
+#gmt grdcut GEBCO_2019.nc -R240/275/14/33 -Gmx_relief.nc
 gdalinfo -stats mx_relief.nc
 # Min=-5319.000 Max=6560.000
 
@@ -49,8 +49,9 @@ gmt psscale -Dg240/11.7+w16.3c/0.4c+h+o0.0/0i+ml+e -R -J -Cpauline.cpt \
 gmt grdcontour mx_relief.nc -R -J -C2000 -Wthinnest,dodgerblue4 -O -K >> $ps
 
 # Add coastlines, borders, rivers
-gmt pscoast -R -J -P \
+#gmt pscoast -R -J -P \
     -Ia/thinner,blue -Na -N1/thickest,olivedrab1 -Wthin,lightcyan2 -Df -O -K >> $ps
+gmt pscoast -R -J -P -Na -N1/thickest,olivedrab1 -Wthin,lightcyan2 -Df -O -K >> $ps
     
 # Add grid
 gmt psbasemap -R -J \
@@ -61,7 +62,7 @@ gmt psbasemap -R -J \
     --FONT_ANNOT_PRIMARY=8p,0,black \
     --FONT_LABEL=8p,25,black \
     --FONT_TITLE=14p,25,black \
-    -B+t"Seismicity in Mexico: IRIS database (2015-2021)" -O -K >> $ps
+    -B+t"Seismicity in Mexico: IRIS database (2007-2021)" -O -K >> $ps
     
 # Add scale, directional rose
 gmt psbasemap -R -J \
@@ -85,12 +86,29 @@ gmt psxy -R -J GSFML_SF_FZ_RM.gmt -Wthicker,pink -O -K >> $ps
 gmt psxy -R -J ridge.gmt -Sf0.5c/0.15c+l+t -Wthick,red -Gyellow -O -K >> $ps
 gmt psxy -R -J ridge.gmt -Sc0.05c -Gred -Wthickest,red -O -K >> $ps
 # tectonic plates
-gmt psxy -R -J TP_Caribbean.txt -L -Wthickest,purple -O -K >> $ps
-gmt psxy -R -J TP_Cocos.txt -L -Wthickest,purple -O -K >> $ps
-gmt psxy -R -J TP_Nazca.txt -L -Wthickest,purple -O -K >> $ps
-gmt psxy -R -J TP_South_Am.txt -L -Wthickest,purple -O -K >> $ps
+gmt psxy -R -J TP_North_Am.txt -L -Wthickest,magenta1 -O -K >> $ps
+gmt psxy -R -J TP_Cocos.txt -L -Wthickest,magenta1 -O -K >> $ps
+gmt psxy -R -J TP_Caribbean.txt -L -Wthickest,magenta1 -O -K >> $ps
+gmt psxy -R -J TP_Pacific.txt -L -Wthickest,magenta1 -O -K >> $ps
 
 # Texts
+# -R240/275/14/33
+gmt pstext -R -J -N -O -K \
+-F+f14p,Helvetica,gold+jLB -Gdimgray@30>> $ps << EOF
+256.0 22.3 NORTH AMERICAN PLATE
+241.0 21.0 PACIFIC PLATE
+EOF
+gmt pstext -R -J -N -O -K \
+-F+f13p,Helvetica,gold+jLB -Gdimgray@30>> $ps << EOF
+256.0 14.3 COCOS PLATE
+269.0 19.0 CARIBBEAN
+269.0 18.0 PLATE
+EOF
+
+# Arrows of tectonic plates movements +bt
+gmt psxy -R -J -Sv0.5c+ea -Ggoldenrod1@30 -W1.0p,goldenrod1 -O -K << EOF >> $ps
+273.5 18.5 280 1.8c
+EOF
 
 # 1.8/7.6
 gmt pslegend -R -J -Dx1.5/-3.0+w17.8c+o-2.0/0.1c \
