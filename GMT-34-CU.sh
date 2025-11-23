@@ -113,7 +113,7 @@ gmt logo -Dx6.0/-4.3+o0.1i/0.1i+w2c -O -K >> $ps
 # Add subtitle
 gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y1.5c -N -O \
     -F+f10p,0,black+jLB >> $ps << EOF
-2.5 9.0 Data cretits: USGS (seismicity), GEBCO/SRTM (topography)
+1.5 9.0 Data credit: NSF SAGE, USGS (seismicity), GEBCO/SRTM (topography)
 EOF
 
 # Convert to image file using GhostScript
