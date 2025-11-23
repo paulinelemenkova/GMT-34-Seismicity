@@ -34,13 +34,13 @@ gmt grdinfo cu_relief1.nc
 # Make color palette
 gmt makecpt -Cgmt/gray -V -T-8997/6781 > myocean.cpt
 # elevation etopo1 world elevation dem1 dem2 dem3 globe geo srtm turbo terra earth relief costa-rica
-gmt makecpt -Cseis -T4/6.0/0.1 -Z > steps.cpt
+gmt makecpt -Cseis -T3.3/7.7/0.1 -Z > steps.cpt
 
 ps=Seis_CU.ps
 # Make image
 gmt grdimage cu_relief.nc -Cpauline.cpt -R275/287/19/24 -JM6.0i -I+a15+ne0.75 -Xc -P -K > $ps
 # Add isolines
-gmt grdcontour cu_relief.nc -R -J -C1000 -A1000+f7p,26,darkbrown -Wthinner,darkbrown -O -K >> $ps
+gmt grdcontour cu_relief.nc -R -J -C1000 -A1000+f7p,26,white -Wthinner,aliceblue -O -K >> $ps
 # Add coastlines, borders, rivers
 gmt pscoast -R -J \
     -Ia/thinner,blue -Na -N1/thicker,red -W0.1p -Df -O -K >> $ps
@@ -50,7 +50,7 @@ gmt psscale -Dg275.0/18.1+w15.0c/0.15i+h+o0.3/0i+ml+e -R -J -Cpauline.cpt \
     --FONT_LABEL=8p,0,black \
     --FONT_ANNOT_PRIMARY=7p,0,black \
     --FONT_TITLE=6p,0,black \
-    -Bg500f50a1000+l"Colormap: 'geo' scheme for topography. [R=-3067/2225, H, C=RGB]" \
+    -Bg500f50a1000+l"Colormap: 'geo' scheme for topography. [R=-8997/6781, H, C=RGB]" \
     -I0.2 -By+lm -O -K >> $ps
     
 # Add grid
@@ -80,14 +80,16 @@ gmt psxy -R -J IEB_export_Cuba.tsv -Wfaint -i4,3,6,6s0.1 -h3 -Scc -Csteps.cpt -O
 # Texts -R275/287/19/24 -Gwhite@40
 gmt pstext -R -J -N -O -K \
 -F+jTL+f10p,1,yellow+jLB+a-350 >> $ps << EOF
-276 19.7 Cayman Trough
+278 19.2 Cayman Trough
 EOF
+gmt psxy -R -J TP_Caribbean.txt -L -Wthick,red -O -K >> $ps
+gmt psxy -R -J TP_North_Am.txt -L -Wthick,red -O -K >> $ps
 
 # insert map
 # Countries codes: ISO 3166-1 alpha-2. Continent codes AF (Africa), AN (Antarctica), AS (Asia), EU (Europe), OC (Oceania), NA (North America), or SA (South America). -EEU+ggrey
 gmt psbasemap -R -J -O -K -DjTR+w2.5c+stmp >> $ps
 read x0 y0 w h < tmp
-gmt pscoast --MAP_GRID_PEN_PRIMARY=thinnest,grey -Rg -JG280/21/$w -Da -Glightgoldenrod1 -A5000 -Bga -Wfaint -ECU+gred -Slightskyblue -O -K -X$x0 -Y$y0 >> $ps
+gmt pscoast --MAP_GRID_PEN_PRIMARY=thinnest,dimgray -Rg -JG280/21/$w -Da -Glightgoldenrod1 -A5000 -Bga -Wfaint -ECU+gred -Slightskyblue -O -K -X$x0 -Y$y0 >> $ps
 gmt psxy -R -J -O -K -T  -X-${x0} -Y-${y0} >> $ps
 
 # Add GMT logo
