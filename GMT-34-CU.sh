@@ -92,10 +92,10 @@ read x0 y0 w h < tmp
 gmt pscoast --MAP_GRID_PEN_PRIMARY=thinnest,dimgray -Rg -JG280/21/$w -Da -Glightgoldenrod1 -A5000 -Bga -Wfaint -ECU+gred -Slightskyblue -O -K -X$x0 -Y$y0 >> $ps
 gmt psxy -R -J -O -K -T  -X-${x0} -Y-${y0} >> $ps
 
-gmt pslegend -R -J -Dx1.5/-3.1+w17.8c+o-2.0/0.1c \
+gmt pslegend -R -J -Dx1.5/-3.1+w16.5c+o-2.0/0.1c \
     -F+pthin+ithinner+gwhite \
     --FONT=8p,black -O -K << FIN >> $ps
-H 10 Helvetica Seismicity: earthquakes magnitude (M) from 1.8 to 7.6
+H 9 Helvetica Seismicity: earthquakes magnitude (M), range from 3.0 to 8.0
 N 9
 S 0.3c c 0.3c red1 0.01c 0.5c M (3.0-3.8)
 S 0.3c c 0.3c sienna1 0.01c 0.5c M (3.8-4.4)
@@ -113,7 +113,7 @@ gmt logo -Dx6.0/-4.3+o0.1i/0.1i+w2c -O -K >> $ps
 # Add subtitle
 gmt pstext -R0/10/0/15 -JX10/10 -X0.5c -Y1.5c -N -O \
     -F+f10p,0,black+jLB >> $ps << EOF
-1.0 9.0 Digital elevation data: GEBCO/SRTM, 15 arc sec (ca. 450 m) resolution grid
+2.5 9.0 Data cretits: USGS (seismicity), GEBCO/SRTM (topography)
 EOF
 
 # Convert to image file using GhostScript
